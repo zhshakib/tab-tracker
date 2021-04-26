@@ -1,18 +1,19 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const morgan = require('morgan')
 
 const app = express()
+const port = process.env.PORT || 3000
 
-app.use(morgan('combine'))
 app.use(bodyParser.json())
-app.use(cors)
+app.use(cors())
 
-app.get('/hello', (req, res, next) => {
+app.get('/', (req, res) => {
   res.send({
-    message: 'hello world!'
+    message: 'hello from api'
   })
 })
 
-app.listen(process.env.PORT || 8081)
+app.listen(port, () => {
+  console.log(`App listening at http://localhost:${port}`)
+})
