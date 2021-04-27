@@ -1,10 +1,11 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const morgan = require('morgan')
 const cors = require('cors')
 
 const app = express()
 const port = process.env.PORT || 3000
-
+app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 

@@ -29,6 +29,8 @@ export default {
         password: this.password
       })
       console.log(response.data);
+      this.email = "",
+      this.password = ""
     }
   }
 }
