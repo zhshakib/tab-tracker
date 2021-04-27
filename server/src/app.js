@@ -8,9 +8,11 @@ const port = process.env.PORT || 3000
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/', (req, res) => {
+app.post('/register', (req, res) => {
+  const email = req.body.email
+  const pass = req.body.password
   res.send({
-    message: 'hello from api'
+    message: `User Created! Email: ${email}, Password: ${pass}`
   })
 })
 
